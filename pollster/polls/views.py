@@ -21,3 +21,10 @@ def detail(request, question_id):
         raise Http404("Question does not exist")
     #pass in question as a dict and load details
     return render(request, 'polls/results.html', {'question': question})
+
+#Get questions and display results
+def results(result, question_id):
+    #looks in db for what we're asking for, if not return 404
+    question = get_object_or_404(Question, pk=question_id)
+    #template is polls/results.html, pass in question data
+    return render(request, 'polls/results.html', {'question': question})
