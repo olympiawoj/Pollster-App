@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     #looks at polls.url file, and it being blank just means /polls
+    path('', include('pages.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
